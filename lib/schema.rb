@@ -13,12 +13,12 @@ else
     conn = PG.connect(dbname: "brotha")
 end
 
-conn.exec("DROP TABLE IF EXISTS role")
-conn.exec("DROP TABLE IF EXISTS comments")
-conn.exec("DROP TABLE IF EXISTS actors")
-conn.exec("DROP TABLE IF EXISTS movies")
-conn.exec("DROP TABLE IF EXISTS users")
-conn.exec("DROP TABLE IF EXISTS movie_actor")
+# conn.exec("DROP TABLE IF EXISTS role")
+# conn.exec("DROP TABLE IF EXISTS comments")
+# conn.exec("DROP TABLE IF EXISTS actors")
+# conn.exec("DROP TABLE IF EXISTS movies")
+# conn.exec("DROP TABLE IF EXISTS users")
+# conn.exec("DROP TABLE IF EXISTS movie_actor")
 
 
 
@@ -28,7 +28,7 @@ conn.exec("CREATE TABLE users(
     name           VARCHAR,
     password       VARCHAR,
     email          VARCHAR,
-    message        TEXT
+    message        TEXT NOT NULL
   )"
 )
 
@@ -63,7 +63,7 @@ conn.exec("CREATE TABLE roles(
 # date will automatically populated using "DATE" and "CURRENT_DATE" in the value fields
 conn.exec("CREATE TABLE comments(
     id            SERIAL PRIMARY KEY,
-    entry         TEXT,
+    entry         TEXT NOT NULL,
     date          DATE,
     user_id       INTEGER REFERENCES users(id)
   )"
