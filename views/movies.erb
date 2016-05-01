@@ -1,0 +1,7 @@
+<h1> MOVIES </h1>
+
+<% @movies.each do |movie| %>
+
+<h4><%= movie['name'] %> <%= movie['director'] %> <%= movie['genre']%> <%= movie['rating'] %> <%= movie['runtime'] %></h4>
+
+<% end %>
