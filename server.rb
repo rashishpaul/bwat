@@ -4,7 +4,6 @@ require "pg"
 module Sinatra
 
   class Server < Sinatra::Base
-    # conn = PG.connect(dbname: "brotha")
 
     get '/'do
       erb :index
@@ -25,9 +24,9 @@ module Sinatra
       @gender = params['gender']
 
       conn.exec_params('INSERT INTO actors (name, birthday, gender) VALUES ($1, $2, $3)', [@name, @birthday, @gender])
-      redirect to('/actors')
 
-      @new_actor = true
+
+      # @new_actor = true
 
       erb :actors
     end
